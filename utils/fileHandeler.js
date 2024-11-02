@@ -1,15 +1,18 @@
 const fs =    require('fs');
+const path = require("path")
 
-exports.writeTasksToFile = (data) =>{
-    fs.writeFileSync('./../data/tasks.json', JSON.stringify(data))
+const filePath = './data/taska.js'
+
+exports.writeTasksToFile = (tasks) =>{
+    fs.writeFileSync(filePath, JSON.stringify(tasks))
     return data
 }
 
 exports.readTasksFormFile = () =>{
-    if(!fs.existsSync('./../data/taska.json')){
+    if(!fs.existsSync(filePath)){
         this.writeTasksToFile([]);
     }
 
-    const data = fs.readFileSync('./../data/tasks.json');
+    const data = fs.readFileSync(filePath);
     return JSON.parse(data)
 }
