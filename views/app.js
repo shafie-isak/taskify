@@ -4,8 +4,10 @@ const { log } = require('console');
 const HOSTNAME = 'localhost'; 
 const PORT = 9000;
 
+
+
 const server = http.createServer((req, res)=>{
-    if(req.url.startsWith('/task')){
+    if(req.url.startsWith('/tasks')){
         taskRoutes(req,res)
     }
     else{

@@ -1,17 +1,17 @@
-const { getTesks } = require("../controller/taskController");
+const { getTesks, createTask, deleteTesks, upadatTesks } = require("../controller/taskController");
 
 const taskRoutes = (req, res) => {
     if(req.method == 'GET'){
         getTesks(req,res);
     }
     else if(req.method == 'POST'){
-        (req,res);
+        createTask(req,res);
     }
     else if(req.method == 'PATCH'){
-        updateTasks(req,res);
+        upadatTesks(req,res);
     }
     else if(req.method == 'DELETE'){
-        deleteTasks(req,res);
+        deleteTesks(req,res);
     }
     else{
         res.writeHead(404,'Not Found', {'content-type': 'application/js'});
