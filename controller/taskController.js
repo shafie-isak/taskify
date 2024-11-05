@@ -4,10 +4,20 @@ const { copyFileSync } = require('fs');
 const path = require('path');
 
 exports.getTesks = (req, res) => {
-        const tasks = readTasksFormFile();
-        res.writeHead(200, {'content-type': 'application/json'});
-        res.end(JSON.stringify(tasks))
+         const tasks = readTasksFromFile(); // Fetch tasks from your file
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         res.end(JSON.stringify(tasks));
 }
+
+
+const taskRoutes = (req, res) => {
+    if (req.method === 'GET') {
+       
+    } else {
+        res.writeHead(405, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Method Not Allowed' }));
+    }
+};
 
 exports.createTask = (req, res) => {
     const form = new IncomingForm();
@@ -50,3 +60,5 @@ exports.deleteTesks = (req, res) => {
     }))
     
 }
+
+
